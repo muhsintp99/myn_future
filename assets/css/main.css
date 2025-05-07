@@ -225,7 +225,8 @@ h6 {
   color: var(--default-color);
   transition: all 0.5s;
   z-index: 997;
-  background-color: var(--heading-color);
+  /* background-color: var(--heading-color); */
+  background-color: color-mix(in srgb, var(--heading-color), transparent 20%);
 }
 
 .header .topbar {
@@ -343,7 +344,6 @@ h6 {
   margin-right: 8px;
 }
 
-
 .header .logo h1 {
   font-size: 30px;
   margin: 0;
@@ -355,12 +355,19 @@ h6 {
 .header .cta-btn:focus {
   color: var(--contrast-color);
   background: var(--accent-color);
-  font-size: 14px;
-  padding: 8px 8px;
+  font-size: 1rem;
+  padding: 2px 8px;
   margin: 0 0 0 20px;
   border-radius: 50px;
   transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+/* .header .cta-btn  i{
+  font-size: 1.5rem;
+} */
 
 .header .cta-btn:hover,
 .header .cta-btn:focus:hover {
@@ -799,13 +806,42 @@ h6 {
   visibility: hidden;
   opacity: 0;
   right: 15px;
-  bottom: -15px;
   z-index: 99999;
   background-color: var(--accent-color);
   width: 44px;
   height: 44px;
   border-radius: 50px;
   transition: all 0.4s;
+}
+
+/* Different positions for each button */
+#scroll-top-btn {
+  bottom: 15px;
+}
+
+#scroll-top-btn.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#phone-btn {
+  bottom: 70px;
+  background-color: #27ae60;
+}
+
+#phone-btn.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#whatsapp-btn {
+  bottom: 125px;
+  background-color: #25d366;
+}
+
+#whatsapp-btn.active {
+  visibility: visible;
+  opacity: 1;
 }
 
 .scroll-top i {
@@ -819,11 +855,14 @@ h6 {
   color: var(--contrast-color);
 }
 
-.scroll-top.active {
-  visibility: visible;
-  opacity: 1;
-  bottom: 15px;
+#phone-btn:hover {
+  background-color: color-mix(in srgb, #27ae60, transparent 20%);
 }
+
+#whatsapp-btn:hover {
+  background-color: color-mix(in srgb, #25d366, transparent 20%);
+}
+
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
@@ -884,7 +923,8 @@ h6 {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
+  background-color: color-mix(in srgb, var(--heading-color), transparent 98%);
+  /* background-color: var(--background-color); */
   padding: 60px 0;
   scroll-margin-top: 90px;
   overflow: clip;
@@ -951,7 +991,7 @@ section,
 .hero {
   position: relative;
   padding-top: 90px;
-  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 95%) 50%, color-mix(in srgb, var(--accent-color), transparent 98%) 25%, transparent 50%);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color), transparent 75%) 50%, color-mix(in srgb, var(--heading-color), transparent 20%) 25%, transparent 50%);
 }
 
 .hero::before {
@@ -1002,9 +1042,11 @@ section,
   .hero .hero-content .hero-buttons {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center horizontally */
+    align-items: center;
+    /* Center horizontally */
     justify-content: center;
-    gap: 20px; /* Add spacing between cards */
+    gap: 20px;
+    /* Add spacing between cards */
   }
 }
 
@@ -1028,20 +1070,40 @@ section,
   font-size: 1.25rem;
 } */
 
+.hero .hero-content .hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center horizontally */
+  justify-content: center;
+  gap: 20px;
+  /* Add spacing between cards */
+}
 
 
-.hero .hero-content .hero-buttons .Joining-cards{
+.hero .hero-content .hero-buttons .Joining-cards {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  background-color: var(--contrast-color);
+  border-radius: 15px;
+  padding: 10px 20px;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  width: 100%;
+}
+
+/* .hero .hero-content .hero-buttons .Joining-cards {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   background-color: var(--contrast-color);
   border-radius: 15px;
   padding: 30px 22px;
-}
+} */
 
 .hero .btn-primary {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   color: var(--contrast-color);
-  padding: 0.75rem 2.5rem;
+  /* padding: 0.75rem 2.5rem; */
   border-radius: 50px;
   font-weight: 500;
   transition: all 0.3s ease;
@@ -1173,14 +1235,11 @@ section,
   position: relative;
   z-index: 1;
   margin-top: 5rem;
-  /* background-color: var(--surface-color); */
-  /* border-radius: 20px; */
-  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); */
-  /* padding-bottom: 2rem; */
 }
- .hero .stat-item-card{
+
+.hero .stat-item-card {
   border-right: 2px solid var(--accent-color);
- }
+}
 
 .hero .stat-item {
   display: flex;
@@ -1189,7 +1248,6 @@ section,
   justify-content: center;
   text-align: center;
   gap: 1rem;
-  padding: 2rem;
 }
 
 .hero .stat-item .stat-icon {
@@ -1274,6 +1332,13 @@ section,
 /*--------------------------------------------------------------
 # About Section
 --------------------------------------------------------------*/
+.about .content {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .about .content h3 {
   font-size: 2rem;
   font-weight: 700;
@@ -1292,7 +1357,7 @@ section,
 
 .about .content ul i {
   flex-shrink: 0;
-  font-size: 48px;
+  font-size: 30px;
   color: var(--accent-color);
   margin-right: 20px;
   line-height: 0;
@@ -1317,15 +1382,82 @@ section,
   top: calc(50% - 47px);
 }
 
-.about form h4{
+.about form h4 {
   color: var(--contrast-color);
 }
 
-.about form{
-  background-color: #315575;
+.about form {
+  background-color: color-mix(in srgb, var(--heading-color), transparent 40%);
   color: var(--contrast-color);
   padding: 2rem;
   border-radius: 1rem;
+}
+
+.about .from-communication {
+  height: 100%;
+}
+
+.about .from-communication input[type=text],
+.about .from-communication input[type=tel],
+.about .from-communication input[type=email],
+.about .from-communication textarea {
+  font-size: 14px;
+  padding: 10px 15px;
+  box-shadow: none;
+  border-radius: 10px;
+  color: var(--default-color);
+  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
+  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.about .from-communication input[type=text]:focus,
+.about .from-communication input[type=tel]:focus,
+.about .from-communication input[type=email]:focus,
+.about .from-communication textarea:focus {
+  border-color: var(--accent-color);
+}
+
+.about .from-communication input[type=text]::placeholder,
+.about .from-communication input[type=tel]::placeholder,
+.about .from-communication input[type=email]::placeholder,
+.about .from-communication textarea::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 20%);
+}
+
+.about .from-communication button[type=submit] {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  border: 0;
+  padding: 10px 36px;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.about .from-communication button[type=submit]:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+
+.about form .btn-btn {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  border-radius: 25px;
+  height: 40px;
+  display: flex;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.about form .btn-btn i {
+  /* background-color: var(--contrast-color); */
+  color: var(--heading-color);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*--------------------------------------------------------------
@@ -1690,121 +1822,6 @@ section,
 
 .team .team-member:hover .social {
   opacity: 1;
-}
-
-/*--------------------------------------------------------------
-# Pricing Section
---------------------------------------------------------------*/
-.pricing .pricing-item {
-  background-color: var(--surface-color);
-  box-shadow: 0 3px 20px -2px rgba(0, 0, 0, 0.1);
-  border-top: 4px solid var(--background-color);
-  padding: 60px 40px;
-  height: 100%;
-  border-radius: 5px;
-}
-
-.pricing h3 {
-  font-weight: 600;
-  margin-bottom: 15px;
-  font-size: 20px;
-}
-
-.pricing h4 {
-  color: var(--accent-color);
-  font-size: 48px;
-  font-weight: 400;
-  font-family: var(--heading-font);
-  margin-bottom: 0;
-}
-
-.pricing h4 sup {
-  font-size: 28px;
-}
-
-.pricing h4 span {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 18px;
-}
-
-.pricing ul {
-  padding: 20px 0;
-  list-style: none;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  text-align: left;
-  line-height: 20px;
-}
-
-.pricing ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.pricing ul i {
-  color: #059652;
-  font-size: 24px;
-  padding-right: 3px;
-}
-
-.pricing ul .na {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na i {
-  color: color-mix(in srgb, var(--default-color), transparent 60%);
-}
-
-.pricing ul .na span {
-  text-decoration: line-through;
-}
-
-.pricing .buy-btn {
-  color: var(--accent-color);
-  display: inline-block;
-  padding: 8px 35px 10px 35px;
-  border-radius: 50px;
-  transition: none;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: var(--heading-font);
-  transition: 0.3s;
-  border: 1px solid var(--accent-color);
-}
-
-.pricing .buy-btn:hover {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.pricing .featured {
-  border-top-color: var(--accent-color);
-}
-
-.pricing .featured .buy-btn {
-  background: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-@media (max-width: 992px) {
-  .pricing .box {
-    max-width: 60%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .pricing .box {
-    max-width: 80%;
-    margin: 0 auto 30px auto;
-  }
-}
-
-@media (max-width: 420px) {
-  .pricing .box {
-    max-width: 100%;
-    margin: 0 auto 30px auto;
-  }
 }
 
 /*--------------------------------------------------------------

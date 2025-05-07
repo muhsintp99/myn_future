@@ -89,6 +89,41 @@
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
 
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const scrollTopBtn = document.querySelector('#scroll-top-btn');
+    const phoneBtn = document.querySelector('#phone-btn');
+    const whatsappBtn = document.querySelector('#whatsapp-btn');
+    
+    // Toggle visibility based on scroll position
+    function toggleButtons() {
+      if (window.scrollY > 100) {
+        scrollTopBtn.classList.add('active');
+        phoneBtn.classList.add('active');
+        whatsappBtn.classList.add('active');
+      } else {
+        scrollTopBtn.classList.remove('active');
+        phoneBtn.classList.remove('active');
+        whatsappBtn.classList.remove('active');
+      }
+    }
+    
+    // Initial check
+    toggleButtons();
+    
+    // Scroll event
+    window.addEventListener('scroll', toggleButtons);
+    
+    // Scroll to top functionality
+    scrollTopBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  });
+
   /**
    * Animation on scroll function and init
    */
