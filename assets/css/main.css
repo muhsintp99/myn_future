@@ -226,7 +226,7 @@ h6 {
   transition: all 0.5s;
   z-index: 997;
   /* background-color: var(--heading-color); */
-  background-color: color-mix(in srgb, var(--heading-color), transparent 20%);
+  background-color: color-mix(in srgb, var(--heading-color), transparent 0%);
 }
 
 .header .topbar {
