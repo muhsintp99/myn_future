@@ -1,0 +1,94 @@
+[
+  {
+    "id": 1,
+    "name": "All India Institute of Medical Sciences (AIIMS), New Delhi",
+    "image": "https://images.hindustantimes.com/rf/image_size_630x354/HT/p2/2018/05/27/Pictures/12feb09-india-institute-thursday-medical-sciences-aiims_d3d77864-6172-11e8-8da7-089610bcbead.jpg",
+    "subDescription": "India's top government medical institute known for excellence in healthcare education.",
+    "about": "All India Institute of Medical Sciences (AIIMS), New Delhi is the premier medical institute in India. Established in 1956, AIIMS is known for high standards of teaching, research, and patient care.",
+    "courses": [
+      "MBBS",
+      "BSc Nursing",
+      "MD",
+      "MCh",
+      "PhD in Medical Sciences"
+    ],
+    "facilities": [
+      "Advanced Research Labs",
+      "Super Specialty Hospital",
+      "Separate Hostels",
+      "Auditorium",
+      "Sports & Recreation"
+    ],
+    "placement": "Most AIIMS graduates pursue post-graduate studies or secure positions in leading hospitals, research institutions, and abroad.",
+    "approvalAndAffiliation": "Autonomous Institute under the Ministry of Health and Family Welfare, Government of India"
+  },
+  {
+    "id": 2,
+    "name": "Manipal Academy of Higher Education (MAHE)",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/00/MAHEMANIPALEDU.jpg",
+    "subDescription": "One of India's leading private universities in healthcare and technology.",
+    "about": "Manipal Academy of Higher Education (MAHE), located in Karnataka, is known for its medical, dental, and engineering programs. It attracts students from over 50 countries.",
+    "courses": [
+      "MBBS",
+      "BDS",
+      "BPT",
+      "Pharmacy",
+      "MSc Clinical Psychology"
+    ],
+    "facilities": [
+      "Simulation Lab",
+      "Wi-Fi Campus",
+      "Digital Library",
+      "International Student Housing",
+      "Cafeteria and Gym"
+    ],
+    "placement": "MAHE has a strong placement cell with ties to Apollo, Fortis, and international hospitals. 80% placement rate across medical and allied health programs.",
+    "approvalAndAffiliation": "Deemed to be University, Approved by UGC, NMC, DCI"
+  },
+  {
+    "id": 3,
+    "name": "Harvard University, USA",
+    "image": "https://images.pexels.com/photos/207692/pexels-photo-207692.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
+    "subDescription": "World-renowned Ivy League university in the USA offering top medical programs.",
+    "about": "Harvard University, located in Cambridge, Massachusetts, is one of the oldest and most prestigious institutions globally. Harvard Medical School is known for innovation, research, and leadership in global healthcare.",
+    "courses": [
+      "Doctor of Medicine (MD)",
+      "Global Health and Social Medicine",
+      "PhD in Biomedical Sciences",
+      "Masters in Public Health",
+      "Health Policy and Management"
+    ],
+    "facilities": [
+      "Harvard Medical Library",
+      "Massachusetts General Hospital Labs",
+      "State-of-the-art Research Centers",
+      "Global Exchange Programs",
+      "On-Campus Housing"
+    ],
+    "placement": "Over 95% of graduates placed in residency programs across top U.S. hospitals including Mayo Clinic, Johns Hopkins, and Mass General.",
+    "approvalAndAffiliation": "Accredited by LCME, Member of the Ivy League"
+  },
+  {
+    "id": 4,
+    "name": "University of Oxford, UK",
+    "image": "https://www.images.ox.ac.uk/pr/525907166/OUImages_104250_preview.jpg",
+    "subDescription": "One of the oldest and most prestigious universities in the world, based in the UK.",
+    "about": "The University of Oxford offers highly competitive medical and life sciences programs, with centuries of academic excellence and top research output.",
+    "courses": [
+      "BM BCh Medicine",
+      "BSc Biomedical Sciences",
+      "MSc Global Health Science",
+      "DPhil (PhD) in Medical Sciences",
+      "Public Health & Epidemiology"
+    ],
+    "facilities": [
+      "Bodleian Medical Library",
+      "Oxford University Hospitals",
+      "Collegiate System Housing",
+      "Lecture Halls & Anatomy Labs",
+      "Sports and Cultural Clubs"
+    ],
+    "placement": "Oxford graduates are highly sought after by NHS and global organizations, with top-tier research and clinical placements.",
+    "approvalAndAffiliation": "Recognized by GMC (UK), QS World Rank #1 in Medicine (2023)"
+  }
+]

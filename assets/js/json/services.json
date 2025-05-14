@@ -1,0 +1,82 @@
+[
+  {
+    "id": "career-counselling",
+    "title": "Career Counselling",
+    "short_description": "Expert Guidance for Your Future",
+    "image": "https://proventuseducation.com/uploads/blog/Why-is-Career-Counseling-important-and-what-are-its-benefits-banner.jpg",
+    "heading": "Discover Your Ideal Career Path",
+    "content": [
+      "We offer personalized career counselling sessions tailored to your interests, strengths, and goals.",
+      "Our team of experts helps you navigate the vast career landscape and make informed decisions."
+    ],
+    "features": [
+      "One-on-one career guidance",
+      "Psychometric assessments",
+      "Goal-oriented planning"
+    ],
+    "extra_content": [
+      "We help students overcome confusion and anxiety regarding their future by providing clarity and direction.",
+      "Our sessions are interactive, practical, and result-driven to ensure long-term success."
+    ]
+  },
+  {
+    "id": "admission-assistance",
+    "title": "Admission Assistance",
+    "short_description": "Seamless Admission Process Support",
+    "image": "https://edubrightway.com/wp-content/uploads/2022/01/management-2.jpeg",
+    "heading": "End-to-End Admission Guidance",
+    "content": [
+      "We simplify the entire admission process for students applying to schools, colleges, or universities.",
+      "From documentation to final selection, we guide you at every stage to ensure a stress-free experience."
+    ],
+    "features": [
+      "University shortlisting",
+      "Application form support",
+      "Interview preparation"
+    ],
+    "extra_content": [
+      "With our extensive network and updated knowledge, we help you apply to top-tier institutions with confidence.",
+      "We ensure timely submission, error-free documentation, and proper follow-up with institutions."
+    ]
+  },
+  {
+    "id": "study-abroad",
+    "title": "Study Abroad",
+    "short_description": "Fulfill Your Dream of Studying Overseas",
+    "image": "https://media.istockphoto.com/id/1185326263/photo/happy-student-in-london.jpg?s=612x612&w=0&k=20&c=SQHdU5QJpdgZ65uYc-LkYIC1F-vgfEk5ID3kN3o8L-0=",
+    "heading": "Global Education Opportunities Await",
+    "content": [
+      "We guide students in selecting countries, courses, and universities for studying abroad.",
+      "Get support with visa processing, test prep (IELTS, TOEFL), and cultural orientation."
+    ],
+    "features": [
+      "Country and university selection",
+      "Visa and financial guidance",
+      "Scholarship application support"
+    ],
+    "extra_content": [
+      "We work with trusted partners across countries like UK, USA, Canada, Australia, Germany, and more.",
+      "Our process is transparent, student-focused, and aimed at helping you succeed internationally."
+    ]
+  },
+  {
+    "id": "course-selection",
+    "title": "Course Selection",
+    "short_description": "Choose the Right Course for Your Goals",
+    "image": "https://atlantic-education.com.au/wp-content/uploads/2016/08/shutterstock_245163547.jpg",
+    "heading": "Find the Perfect Course That Fits You",
+    "content": [
+      "Choosing the right course is crucial. We assess your interests, career goals, and academic background.",
+      "Get expert suggestions on trending, high-scope, and in-demand programs worldwide."
+    ],
+    "features": [
+      "Course shortlisting based on career vision",
+      "Market demand and future scope analysis",
+      "Detailed course comparison"
+    ],
+    "extra_content": [
+      "We help you avoid common mistakes like picking a course based only on popularity or peer pressure.",
+      "With our help, you can align your studies with your long-term aspirations and skill set."
+    ]
+  }
+]

@@ -1,0 +1,136 @@
+{
+  "courses": [
+    {
+      "id": "MBBS",
+      "title": "MBBS",
+      "subtitle": "Bachelor of Medicine, Bachelor of Surgery",
+      "description": "MBBS is a professional undergraduate program in medical science. It prepares students for medical practice and patient care.",
+      "colleges": ["College of Medical Sciences", "King's College London", "Harvard Medical School"],
+      "duration": "5 years",
+      "fee": "₹10,00,000 per year",
+      "icon": "bi bi-heart-pulse",
+      "color": "#ffbb2c"
+    },
+    {
+      "id": "BAMS",
+      "title": "BAMS",
+      "subtitle": "Bachelor of Ayurvedic Medicine and Surgery",
+      "description": "BAMS is an undergraduate degree in Ayurvedic medicine and surgery, focusing on ancient Indian medical practices.",
+      "colleges": ["Bharati Vidyapeeth", "Banaras Hindu University", "Rajasthan Ayurveda University"],
+      "duration": "5.5 years",
+      "fee": "₹80,000 per year",
+      "icon": "bi bi-flower1",
+      "color": "#5578ff"
+    },
+    {
+      "id": "BDS",
+      "title": "BDS",
+      "subtitle": "Bachelor of Dental Surgery",
+      "description": "BDS is a professional dental degree that prepares students for careers in dentistry and oral health care.",
+      "colleges": ["Manipal College of Dental Sciences", "Government Dental College", "Maulana Azad Institute of Dental Sciences"],
+      "duration": "5 years",
+      "fee": "₹6,00,000 per year",
+      "icon": "bi bi-emoji-smile",
+      "color": "#e80368"
+    },
+    {
+      "id": "BHMS",
+      "title": "BHMS",
+      "subtitle": "Bachelor of Homeopathic Medicine and Surgery",
+      "description": "BHMS focuses on homeopathic medicine and its application in treating various diseases, blending modern and traditional treatments.",
+      "colleges": ["National Homeopathic Medical College", "Dr. BR Sur Homeopathic Medical College", "Banaras Hindu University"],
+      "duration": "5.5 years",
+      "fee": "₹50,000 per year",
+      "icon": "bi bi-droplet",
+      "color": "#e361ff"
+    },
+    {
+      "id": "MBA",
+      "title": "MBA",
+      "subtitle": "Master of Business Administration",
+      "description": "MBA is a graduate-level program that focuses on business management and administration. It prepares students for leadership roles in business.",
+      "colleges": ["Indian Institute of Management", "Harvard Business School", "Stanford Graduate School of Business"],
+      "duration": "2 years",
+      "fee": "₹15,00,000 per year",
+      "icon": "bi bi-briefcase",
+      "color": "#47aeff"
+    },
+    {
+      "id": "PGDM",
+      "title": "PGDM",
+      "subtitle": "Post Graduate Diploma in Management",
+      "description": "PGDM is a diploma course in management that provides practical and theoretical knowledge to advance careers in business management.",
+      "colleges": ["SP Jain Institute of Management", "Indian School of Business", "Institute of Management Technology"],
+      "duration": "2 years",
+      "fee": "₹12,00,000 per year",
+      "icon": "bi bi-bar-chart",
+      "color": "#ffa76e"
+    },
+    {
+      "id": "BscNursing",
+      "title": "Bsc Nursing",
+      "subtitle": "Bachelor of Science in Nursing",
+      "description": "BSc Nursing is a course aimed at providing quality education in nursing to help students care for patients and improve healthcare delivery.",
+      "colleges": ["All India Institute of Medical Sciences", "Christian Medical College", "Nursing College of India"],
+      "duration": "4 years",
+      "fee": "₹1,50,000 per year",
+      "icon": "bi bi-bandaid",
+      "color": "#11dbcf"
+    },
+    {
+      "id": "BScFashion",
+      "title": "BSc Fashion",
+      "subtitle": "Bachelor of Science in Fashion Designing",
+      "description": "BSc Fashion is a degree course in fashion designing that prepares students for a career in the fashion industry, focusing on creativity and design techniques.",
+      "colleges": ["National Institute of Fashion Technology", "Pearl Academy", "University of Fashion and Art"],
+      "duration": "3 years",
+      "fee": "₹3,00,000 per year",
+      "icon": "bi bi-palette",
+      "color": "#4233ff"
+    },
+    {
+      "id": "LLB",
+      "title": "LLB",
+      "subtitle": "Bachelor of Law",
+      "description": "LLB is an undergraduate degree in law, preparing students for careers in the legal profession, including courts, firms, and corporate sectors.",
+      "colleges": ["National Law University", "Delhi University Faculty of Law", "Harvard Law School"],
+      "duration": "3 years",
+      "fee": "₹2,00,000 per year",
+      "icon": "bi bi-bank",
+      "color": "#b2904f"
+    },
+    {
+      "id": "BPharm",
+      "title": "B Pharm",
+      "subtitle": "Bachelor of Pharmacy",
+      "description": "B Pharm is an undergraduate program that prepares students for careers in the pharmaceutical industry, including drug research and production.",
+      "colleges": ["Jamia Millia Islamia", "Manipal University", "University of Delhi"],
+      "duration": "4 years",
+      "fee": "₹1,20,000 per year",
+      "icon": "bi bi-capsule",
+      "color": "#b20969"
+    },
+    {
+      "id": "MCA",
+      "title": "MCA",
+      "subtitle": "Master of Computer Applications",
+      "description": "MCA is a postgraduate degree in computer applications that provides students with advanced knowledge of programming, software development, and IT management.",
+      "colleges": ["Indian Institute of Technology", "University of Delhi", "BITS Pilani"],
+      "duration": "2 years",
+      "fee": "₹5,00,000 per year",
+      "icon": "bi bi-cpu",
+      "color": "#ff5828"
+    },
+    {
+      "id": "Aeronautical",
+      "title": "Aeronautical",
+      "subtitle": "Aeronautical Engineering",
+      "description": "Aeronautical Engineering involves the design and development of aircraft and spacecraft. This degree provides the technical knowledge required in the aerospace industry.",
+      "colleges": ["Indian Institute of Aeronautical Engineering", "MIT School of Engineering", "Aerospace Engineering Institute"],
+      "duration": "4 years",
+      "fee": "₹8,00,000 per year",
+      "icon": "bi bi-airplane",
+      "color": "#29cc61"
+    }
+  ]
+}
