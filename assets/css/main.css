@@ -2378,3 +2378,99 @@ section,
   object-fit: contain;
   /* background-color: #25d366; */
 }
+
+/*--------------------------------------------------------------
+# About Us
+--------------------------------------------------------------*/
+.features-about .features-item {
+  background-color: var(--surface-color);
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  /* transition: 0.3s; */
+  position: relative;
+  transition: all ease-in-out 0.5s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.features-about .features-item i {
+  font-size: 32px;
+  padding-right: 10px;
+  line-height: 0;
+}
+
+.features-about .features-item h3 {
+  font-weight: 700;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.features-about .features-item h2 a {
+  color: var(--heading-color);
+  transition: 0.3s;
+}
+
+
+.features-about .features-item:hover h2 a {
+  color: var(--contrast-color);
+}
+
+
+.features-about .features-details .features-item+.features-item {
+  margin-top: 30px;
+}
+
+.features-about  .features-details .features-item .content {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.features-about .features-details .features-item h3 {
+  font-weight: 700;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.features-about .features-details .features-item .more-btn {
+  background-color: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 6px 30px;
+  border-radius: 6px;
+}
+
+.features-about .features-details .features-item .more-btn:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+
+.features-about  .features-details .features-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features-about .features-details .features-item ul li {
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.features-about .features-details .features-item ul li:last-child {
+  padding-bottom: 0;
+}
+
+.features-about .features-details .features-item ul i {
+  font-size: 20px;
+  margin-right: 10px;
+  color: var(--accent-color);
+}
+
+.features-about  .features-details .features-item img {
+  border-radius: 2rem;
+  height: 29rem;
+  width: 100%;
+  object-fit: contain;
+  /* background-color: #25d366; */
+}
