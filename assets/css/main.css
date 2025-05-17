@@ -786,6 +786,35 @@ h6 {
   background-color: color-mix(in srgb, #25d366, transparent 20%);
 }
 
+#instagram-btn {
+  bottom: 180px;
+  background-color: #e1306c; /* Instagram pink */
+}
+
+#instagram-btn.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#instagram-btn:hover {
+  background-color: color-mix(in srgb, #e1306c, transparent 20%);
+}
+
+#facebook-btn {
+  bottom: 235px;
+  background-color: #3b5998; /* Facebook blue */
+}
+
+#facebook-btn.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+#facebook-btn:hover {
+  background-color: color-mix(in srgb, #3b5998, transparent 20%);
+}
+
+
 
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
