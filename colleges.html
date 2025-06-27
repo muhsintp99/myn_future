@@ -269,7 +269,6 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-
   <script>
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -279,34 +278,37 @@
       const descriptionText = document.getElementById('description-text');
       let collegesData = [];
 
-      // Fetch the JSON file containing the college data
-      fetch('./assets/js/json/colleges.json')
+      // Step 1: Fetch API URL from config.json and call the actual API
+      fetch('./assets/js/json/config.json')
+        .then(res => res.json())
+        .then(config => {
+          return fetch(`${config.configApi}/college`);
+        })
         .then(res => res.json())
         .then(data => {
-          collegesData = data;
-          renderCollegeLinks(data);
-          if (data.length > 0) {
-            showCollege(data[0].id); // Show the first college by default
+          collegesData = data.colleges || [];
+          renderCollegeLinks(collegesData);
+          if (collegesData.length > 0) {
+            showCollege(collegesData[0]._id); // Show the first college by default
           }
-        });
+        })
+        .catch(err => console.error(err));
 
       function renderCollegeLinks(colleges) {
         listContainer.innerHTML = '';
         colleges.forEach((college, index) => {
           const a = document.createElement('a');
-          a.href = `${college.id}`;
+          a.href = '#';
           a.textContent = college.name;
-          a.dataset.id = college.id;
+          a.dataset.id = college._id;
           a.classList.add('colleges-link');
-          if (index === 0) {
-            a.classList.add('active');
-          }
+          if (index === 0) a.classList.add('active');
 
           a.addEventListener('click', function (e) {
             e.preventDefault();
             document.querySelectorAll('.colleges-link').forEach(link => link.classList.remove('active'));
             a.classList.add('active');
-            showCollege(college.id);
+            showCollege(college._id);
           });
 
           listContainer.appendChild(a);
@@ -314,40 +316,50 @@
       }
 
       function showCollege(id) {
-        const selectedCollege = collegesData.find(college => college.id === id);
-        if (selectedCollege) {
-          shortDesc.textContent = selectedCollege.name;
-          descriptionText.textContent = selectedCollege.subDescription || '';
+  const selectedCollege = collegesData.find(college => college._id === id);
+  if (selectedCollege) {
+    // Set name in the heading
+    shortDesc.textContent = selectedCollege.name;
 
-          detailContainer.innerHTML = `
-          <div class="college-details">
-            <h2>${selectedCollege.name}</h2>
-            <p>${selectedCollege.subDescription}</p>
-            ${selectedCollege.image ? `<img src="${selectedCollege.image}" alt="${selectedCollege.name}" class="img-fluid rounded mb-3" />` : ''}
+    // Set contact info in the paragraph
+    descriptionText.innerHTML = `
+      <strong>Email:</strong> ${selectedCollege.email}<br>
+      <strong>Phone:</strong> ${selectedCollege.phone}<br>
+      <strong>Website:</strong> <a href="${selectedCollege.website}" target="_blank">${selectedCollege.website}</a><br>
+      <strong>Address:</strong> ${selectedCollege.address}
+    `;
 
-            <h3>About</h3>
-             <p>${selectedCollege.about}</p>
-            <h3>Courses</h3>
-             <p>${selectedCollege.about}</p>
-             <ul>
-              ${selectedCollege.courses.map(e => `<li><i class="bi bi-check-circle"></i> <span>${e}</span></li>`).join('')}
-              </ul>
-            <h3>facilities</h3>
-            <ul>
-              ${selectedCollege.facilities.map(f => `<li><i class="bi bi-check-circle"></i> <span>${f}</span></li>`).join('')}
-              </ul>
-               <h3>Placement</h3>
-             <p>${selectedCollege.placement}</p>
-             <h3>Approval And Affiliation</h3>
-             <p>${selectedCollege.approvalAndAffiliation}</p>
-          </div>
-        `;
-        }
-      }
+    // Populate main detail area
+    detailContainer.innerHTML = `
+      <div class="college-details">
+        <h2>${selectedCollege.name}</h2>
+        <p>${selectedCollege.desc || ''}</p>
+        ${selectedCollege.image ? `<img src="${selectedCollege.image}" alt="${selectedCollege.name}" class="img-fluid rounded mb-3" />` : ''}
+
+        <h3>Courses</h3>
+        <ul>
+          ${selectedCollege.courses.map(course => `<li><i class="bi bi-check-circle"></i> ${course.title} (${course.duration}) - ₹${course.fees}</li>`).join('')}
+        </ul>
+
+        <h3>Facilities</h3>
+        <ul>
+          ${(selectedCollege.facilities || []).map(f => `<li><i class="bi bi-check-circle"></i> ${f}</li>`).join('')}
+        </ul>
+
+        <h3>Services</h3>
+        <ul>
+          ${(selectedCollege.services || []).map(s => `<li><i class="bi bi-check-circle"></i> ${s}</li>`).join('')}
+        </ul>
+
+        <h3>Country</h3>
+        <p>${selectedCollege.country?.name || ''} (${selectedCollege.country?.isoCode || ''})</p>
+      </div>
+    `;
+  }
+}
+
     });
   </script>
-
-
 
 </body>
 
