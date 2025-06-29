@@ -51,7 +51,6 @@
     </div><!-- End Top Bar -->
 
 
-
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -112,29 +111,23 @@
     </div><!-- End Page Title -->
 
     <!-- Service Details Section -->
-    <section id="courses-details " class="service-details section">
-
+    <section id="courses-details" class="service-details section">
       <div class="container">
-
         <div class="row gy-4">
-
+          <!-- Sidebar with Course Links -->
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="services-list" id="courses-list">
-              <!-- Links will be inserted by JavaScript -->
-            </div>
-            <h4 id="short-description">Select a courses to view details</h4>
-            <p id="description-text"></p>
+            <div class="services-list" id="courses-list"></div>
+            <h4 id="short-description">Select a course to view details</h4>
+            <p id="description-text" class="text-muted"></p>
           </div>
 
+          <!-- Course Details -->
           <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200" id="courses-detail">
             <!-- Dynamic content will be injected here -->
           </div>
-
         </div>
-
-
       </div>
-    </section><!-- /Service Details Section -->
+    </section>
 
 
   </main>
@@ -268,6 +261,7 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <!-- Custom Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const listContainer = document.getElementById('courses-list');
@@ -276,27 +270,30 @@
       const descriptionText = document.getElementById('description-text');
       let coursesData = [];
 
-      // Fetch the JSON file containing the course data
-      fetch('./assets/js/json/courses.json')
+      // Fetch config.json and then API
+      fetch('./assets/js/json/config.json')
+        .then(res => res.json())
+        .then(config => fetch(`${config.configApi}/courses`))
         .then(res => res.json())
         .then(data => {
-          coursesData = data.courses;
-          renderCourseLinks(data.courses);
-          showCourse("MBBS");  // Show the MBBS course by default
-        });
+          coursesData = data.data || [];
+          renderCourseLinks(coursesData);
+          if (coursesData.length > 0) {
+            showCourse(coursesData[0]._id); // Show first course
+          }
+        })
+        .catch(err => console.error('Error loading courses:', err));
 
-      // Render course links in the sidebar
+      // Sidebar Course Links
       function renderCourseLinks(courses) {
         listContainer.innerHTML = '';
         courses.forEach((course, index) => {
           const a = document.createElement('a');
-          a.href = `${course.id}`;  // Add href to each course link
+          a.href = '#';
           a.textContent = course.title;
-          a.dataset.id = course.id;
+          a.dataset.id = course._id;
           a.classList.add('course-link');
-          if (index === 0) {
-            a.classList.add('active');
-          }
+          if (index === 0) a.classList.add('active');
 
           a.addEventListener('click', function (e) {
             e.preventDefault();
@@ -309,34 +306,38 @@
         });
       }
 
-      // Display selected course details
+      // Display Course Details
       function showCourse(id) {
-        const course = coursesData.find(item => item.id === id);
+        const course = coursesData.find(c => c._id === id);
         if (!course) return;
 
-        shortDesc.textContent = course.subtitle;
-        descriptionText.textContent = course.description; // Add a short preview
+        shortDesc.textContent = course.shortDescription || course.title;
+        descriptionText.textContent = course.fullDescription || '';
 
         detailContainer.innerHTML = `
-      <div class="course-details">
-        <h3>${course.title}</h3>
-        <div class="course-icon mb-3">
-          <i class="${course.icon}" style="color: ${course.color}; font-size: 48px;"></i>
-        </div>
-        <div class="course-info mb-4">
-          <p><strong>Duration:</strong> ${course.duration}</p>
-          <p><strong>Fee:</strong> ${course.fee}</p>
-          <p>${course.description}</p>
-        </div>
-        <h4>Colleges offering this course:</h4>
-        <ul class="course-colleges">
-          ${course.colleges.map(college => `<li>${college}</li>`).join('')}
-        </ul>
-      </div>
-    `;
-      }
-    });
-  </script>
+          <div class="service-details-content">
+             <h3 class="mb-3">${course.title}</h3>
+            <img src="${course.image}" alt="${course.title}" class=" mb-4 rounded shadow-sm" style="height:25rem;">
+           
+            <p><strong>Duration:</strong> ${course.duration}</p>
+            <p><strong>Fees:</strong> ₹${course.fees.toLocaleString()}</p>
+            <p><strong>Mode:</strong> ${course.mode}</p>
+            <p><strong>Category:</strong> ${course.category}</p>
+            <p>${course.fullDescription}</p>
+
+            <h5>Syllabus</h5>
+            <ul>${course.syllabus.map(item => `<li><i class="bi bi-check-circle"></i> ${item}</li>`).join('')}</ul>
+
+            <h5>Prerequisites</h5>
+            <ul>${course.prerequisites.map(item => `<li> <i class="bi bi-check-circle"></i>${item}</li>`).join('')}</ul>
+
+            </div>
+            `;
+          }
+        });
+        </script>
+        <!-- <h5>Tags</h5>
+        <p> # ${course.tags.join(', ')}</p> -->
 
 </body>
 

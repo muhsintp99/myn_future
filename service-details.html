@@ -332,55 +332,59 @@
       const descriptionText = document.getElementById('description-text');
       let servicesData = [];
 
-      // Fetch the JSON file
-      fetch('./assets/js/json/services.json')
+      // Fetch config and then fetch services from API
+      fetch('./assets/js/json/config.json')
+        .then(res => res.json())
+        .then(config => fetch(`${config.configApi}/services`))
         .then(res => res.json())
         .then(data => {
-          servicesData = data;
-          renderServiceLinks(data);
-          showService(data[0].id); // Show first service by default
-        });
+          servicesData = data.data || [];
+          renderServiceLinks(servicesData);
+          if (servicesData.length > 0) {
+            showService(servicesData[0]._id); // Show first service
+          }
+        })
+        .catch(err => console.error('Error loading services:', err));
 
       // Render sidebar links
       function renderServiceLinks(services) {
         listContainer.innerHTML = '';
-        services.forEach(service => {
+        services.forEach((service, index) => {
           const a = document.createElement('a');
           a.href = '#';
           a.textContent = service.title;
-          a.dataset.id = service.id;
+          a.dataset.id = service._id;
           a.classList.add('service-link');
+          if (index === 0) a.classList.add('active');
+
           a.addEventListener('click', function (e) {
             e.preventDefault();
             document.querySelectorAll('.service-link').forEach(link => link.classList.remove('active'));
             this.classList.add('active');
             showService(this.dataset.id);
           });
+
           listContainer.appendChild(a);
         });
       }
 
       // Display selected service
       function showService(id) {
-        const service = servicesData.find(item => item.id === id);
+        const service = servicesData.find(item => item._id === id);
         if (!service) return;
 
-        shortDesc.textContent = service.short_description;
-        descriptionText.textContent = '';
+        shortDesc.textContent = service.shortDesc || service.title;
+        descriptionText.textContent = service.fullDesc || '';
 
         detailContainer.innerHTML = `
-        <img src="${service.image}" alt="${service.title}" class="img-fluid services-img">
-        <h3>${service.heading}</h3>
-        <p>${service.content[0]}</p>
-        <p>${service.content[1]}</p>
-        <ul>
-          ${service.features.map(f => `<li><i class="bi bi-check-circle"></i> <span>${f}</span></li>`).join('')}
+        <img src="${service.image}" alt="${service.title}" class="img-fluid services-img mb-4 rounded shadow-sm">
+        <h3>${service.title}</h3>
+        <p>${service.fullDesc}</p>
+        <h5 class="mt-4">Highlights:</h5>
+        <ul class="mb-3">
+          ${service.points.map(p => `<li><i class="bi bi-check-circle"></i> <span>${p.title}</span></li>`).join('')}
         </ul>
-        ${service.extra_content.map(p => `<p>${p}</p>`).join('')}
       `;
-
-        // Make the first link active by default
-        document.querySelector('.service-link').classList.add('active');
       }
     });
   </script>
