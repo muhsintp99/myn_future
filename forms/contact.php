@@ -44,13 +44,36 @@ if (
 
         $mail->isHTML(true);
         $mail->Subject = $subject;
-        $mail->Body    = "
-            <h3>New Contact Form Submission</h3>
-            <p><strong>Name:</strong> {$name}</p>
-            <p><strong>Email:</strong> {$email}</p>
-            <p><strong>Phone:</strong> {$phone}</p>
-            <p><strong>Message:</strong><br>{$message}</p>
-        ";
+        $mail->Body = "
+    <div style='font-family: Arial, sans-serif; max-width: 600px; margin: auto; border: 1px solid #e0e0e0; border-radius: 8px; padding: 20px; background-color: #f9f9f9;'>
+        <div style='text-align: center; padding-bottom: 20px;'>
+            <h2 style='color: #0066cc;'>Myn Future</h2>
+            <p style='color: #888;'>New Contact Form Submission</p>
+        </div>
+        <table style='width: 100%; border-collapse: collapse;'>
+            <tr>
+                <td style='padding: 8px; font-weight: bold;'>Name:</td>
+                <td style='padding: 8px;'>$name</td>
+            </tr>
+            <tr style='background-color: #f0f0f0;'>
+                <td style='padding: 8px; font-weight: bold;'>Email:</td>
+                <td style='padding: 8px;'>$email</td>
+            </tr>
+            <tr>
+                <td style='padding: 8px; font-weight: bold;'>Phone:</td>
+                <td style='padding: 8px;'>$phone</td>
+            </tr>
+            <tr style='background-color: #f0f0f0;'>
+                <td style='padding: 8px; font-weight: bold; vertical-align: top;'>Message:</td>
+                <td style='padding: 8px;'>$message</td>
+            </tr>
+        </table>
+        <div style='margin-top: 30px; text-align: center; font-size: 12px; color: #999;'>
+            This message was sent from the Myn Future website.
+        </div>
+    </div>
+";
+
 
         $mail->send();
         echo json_encode(['success' => true, 'message' => 'Message sent successfully!']);
