@@ -83,7 +83,8 @@
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
 
           <div class="cta-contact-toggle-wrapper d-flex align-items-center">
-            <a class="cta-btn me-2" href="https://myn-future-frontend.vercel.app/EnquiryForm">Apply Now <i class="bi bi-arrow-right-circle-fill"></i></a>
+            <a class="cta-btn me-2" href="https://myn-future-frontend.vercel.app/EnquiryForm">Apply Now <i
+                class="bi bi-arrow-right-circle-fill"></i></a>
             <div class="cta-call">
               <small>Need Help? call us free</small><br />
               <span>
@@ -122,16 +123,16 @@
                 <div class="text-center col-md-6 mb-4 mb-md-0 w-100">
                   <div class="Joining-cards">
                     <h5 class="p-0 m-0">Admission in India?</h5>
-                    <a href="#https://myn-future-frontend.vercel.app/EnquiryForm" class="btn btn-primary mx-1">Apply Now <i class="bi bi-arrow-right-circle-fill"
-                        style="font-size: 1.2rem;"></i></a>
+                    <a href="#https://myn-future-frontend.vercel.app/EnquiryForm" class="btn btn-primary mx-1">Apply Now
+                      <i class="bi bi-arrow-right-circle-fill" style="font-size: 1.2rem;"></i></a>
                   </div>
                 </div>
 
                 <div class="text-center col-md-6 w-100">
                   <div class="Joining-cards ">
                     <h5 class="p-0 m-0">Study Abroad?</h5>
-                    <a href="https://myn-future-frontend.vercel.app/EnquiryForm" class="btn btn-primary mx-1">Apply Now <i class="bi bi-arrow-right-circle-fill"
-                        style="font-size: 1.2rem;"></i></a>
+                    <a href="https://myn-future-frontend.vercel.app/EnquiryForm" class="btn btn-primary mx-1">Apply Now
+                      <i class="bi bi-arrow-right-circle-fill" style="font-size: 1.2rem;"></i></a>
                   </div>
                 </div>
               </div>
@@ -259,49 +260,15 @@
           <div class="col-lg-5 position-relative order-lg-last" data-aos="fade-up" data-aos-delay="200">
             <!-- <img src="assets/img/about.jpg" class="img-fluid" alt="">
             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox pulsating-play-btn"></a> -->
-            <form action="#" method="POST" class="row g-2 from-communication">
-              <div class="col-md-12">
-                <h4 class="mb-1 text-center">Request A Call Back</h4>
-
-              </div>
-              <div class="col-md-12">
-                <!-- <label for="name" class="form-label">Student Name</label> -->
-                <input type="text" class="form-control" placeholder="Enter Your Full Name" id="name" name="name"
-                  required>
-              </div>
-
-              <div class="col-md-12">
-                <!-- <label for="contact" class="form-label">Contact Number</label> -->
-                <input type="tel" class="form-control" placeholder="Enter Your Contact Number" id="contact"
-                  name="contact" required>
-              </div>
-
-              <div class="col-md-12">
-                <!-- <label for="email" class="form-label">Email Address</label> -->
-                <input type="email" class="form-control" placeholder="Enter Your Email" id="email" name="email">
-              </div>
-
-              <div class="col-md-12">
-                <!-- <label for="location" class="form-label">Location</label> -->
-                <input type="text" class="form-control" placeholder="Enter Your Location" id="location" name="location">
-              </div>
-
-              <div class="col-md-12">
-                <!-- <label for="course" class="form-label">Course</label> -->
-                <input type="text" class="form-control" placeholder="Enter Course " id="course" name="course">
-              </div>
-
-              <div class="col-md-12">
-                <!-- <label for="school" class="form-label">School / College Name</label> -->
-                <input type="text" class="form-control" placeholder="Enter College / School Name" id="school"
-                  name="school">
-              </div>
-
-              <div class="col-12 mt-4 w-100 d-flex justify-content-end">
-                <button type="submit" class="btn btn-btn">Submit <i class="bi bi-arrow-right-circle-fill"
-                    style="font-size: 1.5rem;"></i> </button>
-              </div>
-
+            <form id="contactForm" class="row g-2 from-communication" novalidate>
+              <input type="text" class="form-control" id="name" placeholder="Enter Your Full Name" required />
+              <input type="tel" class="form-control" id="contact" placeholder="Enter Your Contact Number" required />
+              <input type="email" class="form-control" id="email" placeholder="Enter Your Email" required />
+              <input type="text" class="form-control" id="location" placeholder="Enter Your Location" required />
+              <input type="text" class="form-control" id="course" placeholder="Enter Course" />
+              <input type="text" class="form-control" id="school" placeholder="Enter College / School Name" />
+              <div id="formError" class="text-danger small mt-2"></div>
+              <button type="submit" class="btn btn-btn mt-3">Submit</button>
             </form>
           </div>
 
@@ -474,7 +441,7 @@
 
     </section><!-- /Services Section -->
 
-    
+
     <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section light-background">
 
@@ -623,7 +590,7 @@
 
     </section><!-- /Testimonials Section -->
 
-   
+
     <!-- Faq Section -->
     <section id="faq" class="faq section light-background">
 
@@ -873,7 +840,6 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -883,6 +849,73 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contactForm');
+    const errorBox = document.getElementById('formError');
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const fullname = form.name.value.trim();
+      const mobile = form.contact.value.trim();
+      const email = form.email.value.trim();
+      const location = form.location.value.trim();
+      const course = form.course.value.trim();
+      const school = form.school.value.trim();
+
+      // Basic Validation
+      if (!fullname || !mobile || !email || !location) {
+        errorBox.textContent = "Please fill all required fields.";
+        return;
+      }
+
+      // Mobile number check (10 digit only)
+      const mobilePattern = /^[6-9]\d{9}$/;
+      if (!mobilePattern.test(mobile)) {
+        errorBox.textContent = "Enter a valid 10-digit Indian mobile number.";
+        return;
+      }
+
+      // Email format check
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailPattern.test(email)) {
+        errorBox.textContent = "Enter a valid email address.";
+        return;
+      }
+
+      errorBox.textContent = ""; // Clear previous errors
+
+      // Get API from config.json
+      const config = await fetch('./assets/js/json/config.json').then(res => res.json());
+      const apiUrl = `${config.configApi}/contact`;
+
+      const formData = { fullname, mobile, email, location, course, school };
+
+      try {
+        const res = await fetch(apiUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData),
+        });
+
+        const result = await res.json();
+
+        if (res.ok) {
+          alert("✅ Thank you! We’ll contact you shortly.");
+          form.reset();
+        } else {
+          errorBox.textContent = result.message || "Submission failed. Please try again.";
+        }
+      } catch (err) {
+        console.error("Submission error:", err);
+        errorBox.textContent = "❌ Server error. Please try again later.";
+      }
+    });
+  });
+</script>
 
 </body>
 
