@@ -312,7 +312,7 @@
         if (!course) return;
 
         shortDesc.textContent = course.shortDescription || course.title;
-        descriptionText.textContent = course.fullDescription || '';
+        descriptionText.textContent = course.shortDescription || '';
 
         detailContainer.innerHTML = `
           <div class="service-details-content">
