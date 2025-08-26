@@ -396,7 +396,7 @@ async function populateStates() {
     return;
   }
   const states = await fetchStates();
-  stateFilter.innerHTML = '<option value="">All States</option>' +
+  stateFilter.innerHTML = '<option value="">All Places</option>' +
     states.map(state => `<option value="${state}">${state}</option>`).join('');
 }
 
