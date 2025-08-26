@@ -76,10 +76,15 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about-us.html">About</a></li>
             <li><a href="./courses.html">Courses</a></li>
-            <li><a href="./colleges.html">Colleges</a></li>
-            <li><a href="./service-details.html" class="active">Services</a></li>
+            <li class="dropdown"><a href="#" href="./colleges.html"><span>Colleges</span> <i
+                  class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul id="stateDropdown">
+                <!-- Populated by headerStates.js -->
+              </ul>
+            </li>
+            <li><a href="./admission.html">Admission</a></li>
             <li><a href="./portfolio.html">Gallery</a></li>
-            <li><a href="./events.html">News & Events</a></li>
+            <li><a href="./events.html">Blog</a></li>
             <li><a href="./contact-us.html">Contact</a></li>
             <li class="cta-mobile d-xl-none d-lg-none">
               <a href="#" class="cta-btn">Apply Now <i class="bi bi-arrow-right-circle-fill"></i></a>
@@ -221,17 +226,18 @@
             <li><a href="./portfolio.html">Portfolio</a></li>
             <li><a href="./events.html">Events</a></li>
             <li><a href="./courses.html">Contact Us</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Sitemap</a></li>
 
           </ul>
         </div>
 
 
         <div class="col-lg-3 col-md-3 footer-links">
-          <h4>More Link</h4>
-          <ul>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-            <li><a href="#">Sitemap</a></li>
+          <h4>Trending Colleges</h4>
+          <ul id="trendingColleges">
+            <!-- Populated by trendingColleges.js -->
           </ul>
         </div>
 
@@ -296,8 +302,12 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
+
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/trendingColleges.js"></script>
+  <script src="./assets/js/headerStates.js"></script>
+
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {

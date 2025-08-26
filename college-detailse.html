@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>404 Error - Myn Future</title>
+  <title>College Details - Myn Future</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -49,7 +49,7 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about-us.html">About</a></li>
             <li><a href="./courses.html">Courses</a></li>
-            <li class="dropdown"><a href="./colleges.html"><span>Colleges</span> <i
+            <li class="dropdown"><a href="./colleges.html" class="active"><span>Colleges</span> <i
                   class="bi bi-chevron-down toggle-dropdown"></i></a>
               <ul id="stateDropdown">
                 <!-- Populated by headerStates.js -->
@@ -84,15 +84,50 @@
 
   </header>
 
-  <main class="d-flex justify-content-center align-items-center" style="height: 35vh;">
-    <div class="col-md-12 text-center">
-      <h1>404</h1>
-      <h2>Page Not Found</h2>
-      <p>
-        Sorry, the page you are looking
-        for does not exist.
-      </p>
-    </div>
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title" data-aos="fade">
+      <div class="container">
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">College Details</li>
+          </ol>
+        </nav>
+        <h1>College Details</h1>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- College Details Section -->
+    <section id="college-details" class="college-details section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2>College Details</h2>
+      </div>
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div id="errorMessage" class="alert alert-danger d-none" role="alert"></div>
+        <div class="row">
+          <div class="col-lg-6 text-center">
+            <img id="collegeImage" src="./assets/img/logo/favicon.png" alt="College Image" style="height: 200px;"
+              class="img-fluid rounded">
+          </div>
+          <div class="col-lg-6">
+            <h3 id="collegeName">Loading...</h3>
+            <p id="collegeDescription" class="text-muted"></p>
+            <ul class="list-unstyled">
+              <li><strong>Address:</strong> <span id="collegeAddress"></span></li>
+              <li><strong>Location:</strong> <span id="collegeLocation"></span></li>
+              <li><strong>Phone:</strong> <a id="collegePhone" href=""></a></li>
+              <li><strong>Email:</strong> <a id="collegeEmail" href=""></a></li>
+              <li><strong>Website:</strong> <a id="collegeWebsite" href="" target="_blank"></a></li>
+            </ul>
+            <a id="applyNowButton" href="#" class="btn btn-primary mt-3">Apply for Admission <i
+                class="bi bi-arrow-right-circle-fill ms-2"></i></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
 
@@ -189,18 +224,16 @@
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="./assets/js/collegeDetails.js"></script>
+  <script src="assets/js/trendingColleges.js"></script>
   <script src="./assets/js/headerStates.js"></script>
-
 
 </body>
 

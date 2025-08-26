@@ -68,10 +68,16 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about-us.html">About</a></li>
             <li><a href="./courses.html">Courses</a></li>
-            <li><a href="./colleges.html" class="active">Colleges</a></li>
-            <li><a href="./service-details.html">Services</a></li>
+            <!-- <li><a href="./colleges.html" class="active">Colleges</a></li> -->
+            <li class="dropdown"><a href="#" class="active"><span>Colleges</span> <i
+                  class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul id="stateDropdown">
+                <!-- Populated by headerStates.js -->
+              </ul>
+            </li>
+            <li><a href="./admission.html">Admission</a></li>
             <li><a href="./portfolio.html">Gallery</a></li>
-            <li><a href="./events.html">News & Events</a></li>
+            <li><a href="./events.html">Blog</a></li>
             <li><a href="./contact-us.html">Contact</a></li>
             <li class="cta-mobile d-xl-none d-lg-none">
               <a href="#" class="cta-btn">Apply Now <i class="bi bi-arrow-right-circle-fill"></i></a>
@@ -113,30 +119,36 @@
     </div><!-- End Page Title -->
 
 
-    <!-- Service Details Section -->
-    <section id="colleges-details " class="service-details section">
-
-      <div class="container">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="services-list" id="colleges-list">
-              <!-- Links will be inserted by JavaScript -->
-            </div>
-            <h4 id="short-description">Select a colleges to view details</h4>
-            <p id="description-text"></p>
-          </div>
-
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200" id="colleges-detail">
-            <!-- Dynamic content will be injected here -->
-          </div>
-
+    <!-- Search and Filter Section -->
+    <div class="container search-filter">
+      <h2 class="text-center mb-4 mt-4 fw-bold">Colleges</h2>
+      <div class="row g-3">
+        <div class="col-md-6">
+          <input type="text" class="form-control" id="searchInput" placeholder="Search by college name...">
         </div>
-
-
+        <div class="col-md-3">
+          <select class="form-select" id="countryFilter">
+            <option value="">All Countries</option>
+            <!-- Countries will be populated by API -->
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" id="stateFilter">
+            <option value="">All States</option>
+            <!-- States will be populated by API -->
+          </select>
+        </div>
       </div>
-    </section><!-- /Service Details Section -->
+      <div id="errorMessage" class="error-message bg-light text-danger text-center mt-2 mb-2" style="display: none;">
+      </div>
+    </div>
+
+    <!-- Colleges Section -->
+    <div class="container mb-5 mt-5">
+      <div class="row row-cols-1 row-cols-md-4 g-4" id="collegesList">
+        <!-- College cards will be populated by API -->
+      </div>
+    </div>
 
 
   </main>
@@ -167,17 +179,18 @@
             <li><a href="./portfolio.html">Portfolio</a></li>
             <li><a href="./events.html">Events</a></li>
             <li><a href="./courses.html">Contact Us</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Sitemap</a></li>
 
           </ul>
         </div>
 
 
         <div class="col-lg-3 col-md-3 footer-links">
-          <h4>More Link</h4>
-          <ul>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-            <li><a href="#">Sitemap</a></li>
+          <h4>Trending Colleges</h4>
+          <ul id="trendingColleges">
+            <!-- Populated by trendingColleges.js -->
           </ul>
         </div>
 
@@ -210,7 +223,8 @@
   </footer>
 
   <!-- Scroll Top -->
-  <!-- <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
+  <!-- 
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a> -->
 
   <a href="#" id="scroll-top-btn" class="scroll-top d-flex align-items-center justify-content-center"
     aria-label="Go to top">
@@ -242,98 +256,11 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script>
+  <script src="./assets/js/main.js"></script>
+  <script src="./assets/js/CollegeList.js"></script>
+  <script src="./assets/js/trendingColleges.js"></script>
+  <script src="./assets/js/headerStates.js"></script>
 
-    document.addEventListener('DOMContentLoaded', function () {
-      const listContainer = document.getElementById('colleges-list');
-      const detailContainer = document.getElementById('colleges-detail');
-      const shortDesc = document.getElementById('short-description');
-      const descriptionText = document.getElementById('description-text');
-      let collegesData = [];
-
-      // Step 1: Fetch API URL from config.json and call the actual API
-      fetch('./assets/js/json/config.json')
-        .then(res => res.json())
-        .then(config => {
-          return fetch(`${config.configApi}/college`);
-        })
-        .then(res => res.json())
-        .then(data => {
-          collegesData = data.colleges || [];
-          renderCollegeLinks(collegesData);
-          if (collegesData.length > 0) {
-            showCollege(collegesData[0]._id); // Show the first college by default
-          }
-        })
-        .catch(err => console.error(err));
-
-      function renderCollegeLinks(colleges) {
-        listContainer.innerHTML = '';
-        colleges.forEach((college, index) => {
-          const a = document.createElement('a');
-          a.href = '#';
-          a.textContent = college.name;
-          a.dataset.id = college._id;
-          a.classList.add('colleges-link');
-          if (index === 0) a.classList.add('active');
-
-          a.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelectorAll('.colleges-link').forEach(link => link.classList.remove('active'));
-            a.classList.add('active');
-            showCollege(college._id);
-          });
-
-          listContainer.appendChild(a);
-        });
-      }
-
-      function showCollege(id) {
-  const selectedCollege = collegesData.find(college => college._id === id);
-  if (selectedCollege) {
-    // Set name in the heading
-    shortDesc.textContent = selectedCollege.name;
-
-    // Set contact info in the paragraph
-    descriptionText.innerHTML = `
-      <strong>Email:</strong> ${selectedCollege.email}<br>
-      <strong>Phone:</strong> ${selectedCollege.phone}<br>
-      <strong>Website:</strong> <a href="${selectedCollege.website}" target="_blank">${selectedCollege.website}</a><br>
-      <strong>Address:</strong> ${selectedCollege.address}
-    `;
-
-    // Populate main detail area
-    detailContainer.innerHTML = `
-      <div class="college-details">
-        <h2>${selectedCollege.name}</h2>
-        <p>${selectedCollege.desc || ''}</p>
-        ${selectedCollege.image ? `<img src="${selectedCollege.image}" alt="${selectedCollege.name}" class=" rounded mb-3" style="height:25rem;"/>` : ''}
-
-        <h3>Courses</h3>
-        <ul>
-          ${selectedCollege.courses.map(course => `<li><i class="bi bi-check-circle"></i> ${course.title} (${course.duration}) - ₹${course.fees}</li>`).join('')}
-        </ul>
-
-        <h3>Facilities</h3>
-        <ul>
-          ${(selectedCollege.facilities || []).map(f => `<li><i class="bi bi-check-circle"></i> ${f}</li>`).join('')}
-        </ul>
-
-        <h3>Services</h3>
-        <ul>
-          ${(selectedCollege.services || []).map(s => `<li><i class="bi bi-check-circle"></i> ${s}</li>`).join('')}
-        </ul>
-
-        <h3>Country</h3>
-        <p>${selectedCollege.country?.name || ''} (${selectedCollege.country?.isoCode || ''})</p>
-      </div>
-    `;
-  }
-}
-
-    });
-  </script>
 
 </body>
 

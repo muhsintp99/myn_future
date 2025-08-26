@@ -788,7 +788,8 @@ h6 {
 
 #instagram-btn {
   bottom: 180px;
-  background-color: #e1306c; /* Instagram pink */
+  background-color: #e1306c;
+  /* Instagram pink */
 }
 
 #instagram-btn.active {
@@ -802,7 +803,8 @@ h6 {
 
 #facebook-btn {
   bottom: 235px;
-  background-color: #3b5998; /* Facebook blue */
+  background-color: #3b5998;
+  /* Facebook blue */
 }
 
 #facebook-btn.active {
@@ -1541,6 +1543,115 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Top College Section
+--------------------------------------------------------------*/
+/* .topcollege .topcollege-item { */
+.topcollege .card {
+  background-color: var(--surface-color);
+  box-shadow: 0px 0 30px 0 rgba(0, 0, 0, 0.1);
+  transition: all ease-in-out 0.4s;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  border-radius: 8px;
+}
+
+.topcollege .topcollege-item {
+  padding: 12px 25px 35px 25px;
+}
+
+/* .topcollege .topcollege-item:before { */
+.topcollege .card:before {
+  content: "";
+  position: absolute;
+  background: color-mix(in srgb, var(--accent-color), transparent 96%);
+  right: -80px;
+  top: -80px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+/* .topcollege .topcollege-item:after { */
+.topcollege .card:after {
+  content: "";
+  position: absolute;
+  background: color-mix(in srgb, var(--accent-color), transparent 100%);
+  right: -140px;
+  top: -140px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.topcollege .topcollege-item h4 {
+  font-weight: 600;
+  margin: 15px 0 0 0;
+  transition: 0.3s;
+  font-size: 20px;
+}
+
+.topcollege .topcollege-item h4 a {
+  color: var(--heading-color);
+}
+
+.topcollege .topcollege-item p {
+  line-height: 24px;
+  font-size: 14px;
+  margin: 10px 0 0 0;
+}
+
+.topcollege .card:hover:before,
+.topcollege .card:hover:after {
+  /* background: var(--accent-color); */
+  background: color-mix(in srgb, var(--accent-color), transparent 99%);
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px;
+}
+
+
+.topcollege .topcollege-item .btn-primary {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 25px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.topcollege .topcollege-item .btn-primary i {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  font-size: 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* .topcollege .card:hover h4 a,
+.topcollege .card:hover p {
+  color: var(--contrast-color);
+}
+
+.topcollege .card:hover i {
+  background: var(--surface-color);
+  color: var(--accent-color);
+} */
+
+/*--------------------------------------------------------------
 # Alt Services Section
 --------------------------------------------------------------*/
 .alt-services .img {
@@ -1639,7 +1750,7 @@ section,
 }
 
 .features .features-item:hover h3.a,
-.features .features-item:hover{
+.features .features-item:hover {
   color: var(--contrast-color);
 }
 
@@ -2454,7 +2565,7 @@ section,
   margin-top: 30px;
 }
 
-.features-about  .features-details .features-item .content {
+.features-about .features-details .features-item .content {
   background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   padding: 30px;
@@ -2478,7 +2589,7 @@ section,
   background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
-.features-about  .features-details .features-item ul {
+.features-about .features-details .features-item ul {
   list-style: none;
   padding: 0;
 }
@@ -2499,10 +2610,31 @@ section,
   color: var(--accent-color);
 }
 
-.features-about  .features-details .features-item img {
+.features-about .features-details .features-item img {
   border-radius: 2rem;
   height: 29rem;
   width: 100%;
   object-fit: contain;
   /* background-color: #25d366; */
+}
+
+/* ===================================
+======== college card ================
+=================================== */
+
+
+.college-card {
+  height: 100%; /* makes all cards equal height inside a row */
+  display: flex;
+  flex-direction: column;
+}
+
+.college-card .card-body {
+  flex: 1; /* makes body take remaining space */
+  display: flex;
+  flex-direction: column;
+}
+
+.college-card .btn {
+  margin-top: auto; /* pushes button to bottom */
 }

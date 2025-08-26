@@ -68,10 +68,15 @@
             <li><a href="./index.html">Home</a></li>
             <li><a href="./about-us.html" class="active">About</a></li>
             <li><a href="./courses.html">Courses</a></li>
-            <li><a href="./colleges.html">Colleges</a></li>
-            <li><a href="./service-details.html">Services</a></li>
+            <li class="dropdown"><a href="./colleges.html"><span>Colleges</span> <i
+                  class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <ul id="stateDropdown">
+                <!-- Populated by headerStates.js -->
+              </ul>
+            </li>
+            <li><a href="./admission.html">Admission</a></li>
             <li><a href="./portfolio.html">Gallery</a></li>
-            <li><a href="./events.html">News & Events</a></li>
+            <li><a href="./events.html">Blog</a></li>
             <li><a href="./contact-us.html">Contact</a></li>
             <li class="cta-mobile d-xl-none d-lg-none">
               <a href="#" class="cta-btn">Apply Now <i class="bi bi-arrow-right-circle-fill"></i></a>
@@ -130,9 +135,8 @@
           <!-- Feature Section - Mission, Who We Help, and Our Process -->
           <div class="row gy-4 justify-content-between features-item">
             <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-              <img
-                src="https://images.pexels.com/photos/68761/pexels-photo-68761.jpeg"
-                class="img-fluid" alt="Medical Career Support">
+              <img src="https://images.pexels.com/photos/68761/pexels-photo-68761.jpeg" class="img-fluid"
+                alt="Medical Career Support">
             </div>
 
             <div class="col-lg-6 d-flex align-items-center" data-aos="fade-up" data-aos-delay="200">
@@ -172,7 +176,8 @@
             </div>
 
             <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-up" data-aos-delay="200">
-              <img src="https://images.pexels.com/photos/1181717/pexels-photo-1181717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+              <img
+                src="https://images.pexels.com/photos/1181717/pexels-photo-1181717.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
                 class="img-fluid" alt="Why Choose MYN Future">
             </div>
           </div><!-- /Second Feature -->
@@ -190,7 +195,7 @@
                 <h3>Why Choose Myn Future?</h3>
                 <p>Confused About Your Medical Career? We're Here To Help! <br>
 
-                  Here’s why thousands of students trust Myn Future:</p> 
+                  Here’s why thousands of students trust Myn Future:</p>
                 <ul>
                   <li><i class="bi bi-easel flex-shrink-0"></i> Get personalized guidance from medical field
                     specialists.</li>
@@ -240,17 +245,18 @@
             <li><a href="./portfolio.html">Portfolio</a></li>
             <li><a href="./events.html">Events</a></li>
             <li><a href="./courses.html">Contact Us</a></li>
+            <li><a href="#">Terms of service</a></li>
+            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">Sitemap</a></li>
 
           </ul>
         </div>
 
 
         <div class="col-lg-3 col-md-3 footer-links">
-          <h4>More Link</h4>
-          <ul>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-            <li><a href="#">Sitemap</a></li>
+          <h4>Trending Colleges</h4>
+          <ul id="trendingColleges">
+            <!-- Populated by trendingColleges.js -->
           </ul>
         </div>
 
@@ -316,6 +322,10 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/trendingColleges.js"></script>
+  <script src="./assets/js/headerStates.js"></script>
+
+
 
 </body>
 
