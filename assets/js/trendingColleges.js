@@ -45,7 +45,7 @@ async function populateTrendingColleges() {
     }
 
     trendingList.innerHTML = trendingColleges
-        .map(college => `<li><a href="college-details.html?id=${college._id}">${college.name || 'Unknown College'}</a></li>`)
+        .map(college => `<li><a href="college-detailse.html?id=${college._id}">${college.name || 'Unknown College'}</a></li>`)
         .join('');
 }
 
