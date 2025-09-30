@@ -58,7 +58,6 @@
        document.getElementById('collegeEmail').href = college.email ? `mailto:${college.email}` : '#';
        document.getElementById('collegeWebsite').textContent = college.website || 'No website available.';
        document.getElementById('collegeWebsite').href = college.website || '#';
-       document.getElementById('applyNowButton').href = college.website || '#';
    }
 
    // Initialize on page load
